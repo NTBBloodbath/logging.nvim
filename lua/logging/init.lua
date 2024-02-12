@@ -24,6 +24,7 @@
 ---@brief ]]
 
 ---@class Logger
+---@field _VERSION string logging.nvim version constant
 local logger = {}
 
 logger._VERSION = "1.0.0"
@@ -31,8 +32,13 @@ logger._VERSION = "1.0.0"
 -- NOTE: vim.loop has been renamed to vim.uv in Neovim >= 0.10 and will be removed later
 local uv = vim.uv or vim.loop
 
----@see vim.log.levels
 ---@class LoggerLevels
+---@field trace number Equivalent of `vim.log.levels.TRACE`
+---@field debug number Equivalent of `vim.log.levels.DEBUG`
+---@field info number Equivalent of `vim.log.levels.INFO`
+---@field warn number Equivalent of `vim.log.levels.WARN`
+---@field error number Equivalent of `vim.log.levels.ERROR`
+---@see vim.log.levels
 local levels = {
   trace = vim.log.levels.TRACE,
   debug = vim.log.levels.DEBUG,
