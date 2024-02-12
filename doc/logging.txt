@@ -22,13 +22,13 @@ logger:info("This is an info log")
 ```
 
 
-Logger                                                                  *Logger*
+Logging                                                                *Logging*
 
     Fields: ~
         {_VERSION}  (string)  logging.nvim version constant
 
 
-LoggerLevels                                                      *LoggerLevels*
+LoggingLevels                                                    *LoggingLevels*
 
     Fields: ~
         {trace}  (number)  Equivalent of `vim.log.levels.TRACE`
@@ -41,7 +41,7 @@ LoggerLevels                                                      *LoggerLevels*
         |vim.log.levels|
 
 
-LoggerConfig                                                      *LoggerConfig*
+LoggingConfig                                                    *LoggingConfig*
 
     Fields: ~
         {level_name?}  (string)   Logging level name. Default is `"info"`
@@ -49,17 +49,17 @@ LoggerConfig                                                      *LoggerConfig*
         {save_logs?}   (boolean)  Whether to save log messages into a `.log` file. Default is `true`
 
 
-logger:new({opts})                                                  *logger:new*
+logging:new({opts})                                                *logging:new*
     Create a new logger instance
 
     Parameters: ~
-        {opts}  (LoggerConfig)  Logger configuration
+        {opts}  (LoggingConfig)  Logger configuration
 
     Returns: ~
-        (Logger)
+        (Logging)
 
 
-logger:set_log_level({level})                             *logger:set_log_level*
+logging:set_log_level({level})                           *logging:set_log_level*
     Set the log level for the logger
 
     Parameters: ~
@@ -69,35 +69,35 @@ logger:set_log_level({level})                             *logger:set_log_level*
         |vim.log.levels|
 
 
-logger:trace({msg})                                               *logger:trace*
+logging:trace({msg})                                             *logging:trace*
     Log a trace message
 
     Parameters: ~
         {msg}  (string)  Log message
 
 
-logger:debug({data})                                              *logger:debug*
+logging:debug({data})                                            *logging:debug*
     Log a debug message
 
     Parameters: ~
         {data}  (any)  Log message data. If it is a table, it will be converted into a readable representation
 
 
-logger:info({msg})                                                 *logger:info*
+logging:info({msg})                                               *logging:info*
     Log an info message
 
     Parameters: ~
         {msg}  (string)  Log message
 
 
-logger:warn({msg})                                                 *logger:warn*
+logging:warn({msg})                                               *logging:warn*
     Log a warning message
 
     Parameters: ~
         {msg}  (string)  Log message
 
 
-logger:error({msg})                                               *logger:error*
+logging:error({msg})                                             *logging:error*
     Log an error message
 
     Parameters: ~
