@@ -23,16 +23,16 @@
 ---
 ---@brief ]]
 
----@class Logger
+---@class Logging
 ---@field _VERSION string logging.nvim version constant
-local logger = {}
+local logging = {}
 
-logger._VERSION = "1.0.0"
+logging._VERSION = "1.0.0"
 
 -- NOTE: vim.loop has been renamed to vim.uv in Neovim >= 0.10 and will be removed later
 local uv = vim.uv or vim.loop
 
----@class LoggerLevels
+---@class LoggingLevels
 ---@field trace number Equivalent of `vim.log.levels.TRACE`
 ---@field debug number Equivalent of `vim.log.levels.DEBUG`
 ---@field info number Equivalent of `vim.log.levels.INFO`
@@ -47,7 +47,7 @@ local levels = {
   error = vim.log.levels.ERROR,
 }
 
----@class LoggerConfig
+---@class LoggingConfig
 ---@field level_name? string Logging level name. Default is `"info"`
 ---@field plugin_name string Plugin name. Default is `""`
 ---@field save_logs? boolean Whether to save log messages into a `.log` file. Default is `true`
@@ -81,9 +81,9 @@ local function store_log(plugin_name, msg)
 end
 
 ---Create a new logger instance
----@param opts LoggerConfig Logger configuration
----@return Logger
-function logger:new(opts)
+---@param opts LoggingConfig Logger configuration
+---@return Logging
+function logging:new(opts)
   opts = opts or {}
   local conf = vim.tbl_deep_extend("force", default_config, opts)
   self.level = levels[conf.level_name]
@@ -108,13 +108,13 @@ end
 ---Set the log level for the logger
 ---@param level string New logging level
 ---@see vim.log.levels
-function logger:set_log_level(level)
+function logging:set_log_level(level)
   self.level = levels[level]
 end
 
 ---Log a trace message
 ---@param msg string Log message
-function logger:trace(msg)
+function logging:trace(msg)
   msg = self.plugin .. " TRACE: " .. msg
   if self.level == vim.log.levels.TRACE then
     vim.notify(msg, levels.trace)
@@ -127,7 +127,7 @@ end
 
 ---Log a debug message
 ---@param data any Log message data. If it is a table, it will be converted into a readable representation
-function logger:debug(data)
+function logging:debug(data)
   local msg = self.plugin .. " DEBUG: " .. vim.inspect(data)
   if self.level == vim.log.levels.DEBUG then
     vim.notify(msg, levels.debug)
@@ -140,7 +140,7 @@ end
 
 ---Log an info message
 ---@param msg string Log message
-function logger:info(msg)
+function logging:info(msg)
   msg = self.plugin .. " INFO: " .. msg
   local valid_levels = { vim.log.levels.INFO, vim.log.levels.DEBUG }
   if vim.tbl_contains(valid_levels, self.level) then
@@ -154,7 +154,7 @@ end
 
 ---Log a warning message
 ---@param msg string Log message
-function logger:warn(msg)
+function logging:warn(msg)
   msg = self.plugin .. " WARN: " .. msg
   local valid_levels = { vim.log.levels.INFO, vim.log.levels.DEBUG, vim.log.levels.WARN }
   if vim.tbl_contains(valid_levels, self.level) then
@@ -168,7 +168,7 @@ end
 
 ---Log an error message
 ---@param msg string Log message
-function logger:error(msg)
+function logging:error(msg)
   msg = self.plugin .. " ERROR: " .. msg
   vim.notify(msg, levels.error)
 
@@ -177,4 +177,4 @@ function logger:error(msg)
   end
 end
 
-return logger
+return logging
