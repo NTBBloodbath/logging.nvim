@@ -26,6 +26,8 @@
 ---@class Logger
 local logger = {}
 
+logger._VERSION = "1.0.0"
+
 -- NOTE: vim.loop has been renamed to vim.uv in Neovim >= 0.10 and will be removed later
 local uv = vim.uv or vim.loop
 
