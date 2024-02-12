@@ -48,7 +48,10 @@ local logger = require("logging"):new({
 })
 ```
 
-And start using said instance to send your logs using `logger:log_level("foo")`!
+And start using said instance to send your logs using `logger:level_name("foo")`!
+
+Also, the `logger:debug(foo)` logs are verbose for a better experience during
+the development of your plugins ;)
 
 > [!IMPORTANT]
 > You can see all the documentation for `logging.nvim` with `:h logging.txt`
