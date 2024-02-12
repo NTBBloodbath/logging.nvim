@@ -1,7 +1,8 @@
 # logging.nvim
+
 A very simple and asynchronous logging library for Neovim plugins.
 
-[![LuaRocks]()]
+[![LuaRocks](https://img.shields.io/luarocks/v/NTBBloodbath/logging.nvim?style=for-the-badge&logo=lua&color=blue)](https://luarocks.org/modules/NTBBloodbath/logging.nvim)
 
 > [!IMPORTANT] This logging library needs at least Neovim `>= 0.9`.
 
