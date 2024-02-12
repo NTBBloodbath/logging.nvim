@@ -27,7 +27,7 @@
 ---@field _VERSION string logging.nvim version constant
 local logging = {}
 
-logging._VERSION = "1.0.0"
+logging._VERSION = "1.1.0"
 
 -- NOTE: vim.loop has been renamed to vim.uv in Neovim >= 0.10 and will be removed later
 local uv = vim.uv or vim.loop
