@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/NTBBloodbath/logging.nvim/compare/v1.0.0...v1.1.0) (2024-02-12)
+
+
+### Features
+
+* bump version ([a4c089a](https://github.com/NTBBloodbath/logging.nvim/commit/a4c089a612701fc8cd73a15feecaabb072c165a6))
+
 ## 1.0.0 (2024-02-12)
 
 
