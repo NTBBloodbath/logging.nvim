@@ -54,7 +54,7 @@ Also, the `logger:debug(foo)` logs are verbose for a better experience during
 the development of your plugins ;)
 
 > [!IMPORTANT]
-> You can see all the documentation for `logging.nvim` with `:h logging.txt`
+> You can see all the documentation for `logging.nvim` with `:h logging`
 
 ### Default configuration
 
